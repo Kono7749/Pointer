@@ -7,8 +7,6 @@ void increase_value(int *number_ptr) {
 
 int main() {
     int data;
-
-    printf("Enter initial integer value: ");
     scanf("%d", &data);
 
     printf("\n--- POINTER MODIFICATION REPORT ---\n");
