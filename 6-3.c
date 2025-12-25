@@ -1,8 +1,5 @@
 #include <stdio.h>
 #define SIZE 3
-    int data[SIZE];
-    int *ptr;
-    int i;
 int main() {
     int data[SIZE];
     int *ptr;
