@@ -1,52 +1,27 @@
 #include <stdio.h>
 
-#define SIZE 5
-
-int calculate_net_balance(int *trans_array, int size, int *status_ptr) {
-    int total = 0;
-    int i;
-
-    for (i = 0; i < size; i++) {
-        total += *(trans_array + i);
-    }
-
-    if (total >= 0) {
-        *status_ptr = 1;
-    } else {
-        *status_ptr = 0;
-    }
-
-    return total;
+float calculate_win_odds(int outs) {
+    return (float)outs * 4.0f;
 }
 
 int main() {
-    int transactions[SIZE];
-    int net_balance;
-    int finance_status;
-    int i;
+    int card_outs;
+    float win_probability;
 
-    printf("Enter %d transactions (Income +, Expense -):\n", SIZE);
-    for (i = 0; i < SIZE; i++) {
-        printf("Transaction %d: ", i + 1);
-        scanf("%d", &transactions[i]);
+    if (scanf("%d", &card_outs) != 1) {
+        return 1; 
     }
 
-    net_balance = calculate_net_balance(transactions, SIZE, &finance_status);
+    win_probability = calculate_win_odds(card_outs);
 
-    printf("\n--- PERSONAL FINANCE REPORT ---\n");
-    printf("Transactions Recorded: ");
-    for (i = 0; i < SIZE; i++) {
-        printf("%d ", transactions[i]);
-    }
-    printf("\n");
-
-    printf("Net Balance: %d\n", net_balance);
-
-    printf("Status: ");
-    if (finance_status == 1) {
-        printf("PROFIT\n");
+    printf("\n--- POKER PROBABILITY REPORT (2 Cards Remaining) ---\n");
+    printf("Calculated Outs: %d\n", card_outs);
+    printf("Win Probability (Odds x 4): %.2f%%\n", win_probability);
+    printf("Assessment: ");
+    if (win_probability >= 30.0) {
+        printf("HIGH Win Probability\n");
     } else {
-        printf("LOSS\n");
+        printf("LOW Win Probability\n");
     }
 
     return 0;
