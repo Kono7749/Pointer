@@ -1,9 +1,8 @@
 #include <stdio.h>
-
-// กำหนดขนาดของ Array ตามที่โจทย์ระบุ
 #define SIZE 3
 
 int main() {
+
     int data[SIZE];
     int *ptr;
     int i;
@@ -21,8 +20,8 @@ int main() {
     printf("----------------------------------------------------------\n");
 
     for (i = 0; i < SIZE; i++) {
-        printf("%5d | %14d | %19d | %p\n", 
-            i,
+        printf("%5d | %14d | %19d | %p\n",
+            i, 
             data[i],
             *(ptr + i),
             (ptr + i)
